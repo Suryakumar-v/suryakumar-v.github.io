@@ -13,28 +13,28 @@
       color: #333;
       line-height: 1.6;
     }
-    
+
     /* ===== Dark Mode ===== */
     body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
+      background: #121212;
+      color: #e0e0e0;
     }
 
     body.dark-mode .container {
-    background: #1e1e1e;
+      background: #1e1e1e;
     }
 
     body.dark-mode h1,
     body.dark-mode h2 {
-    color: #90caf9;
+      color: #90caf9;
     }
 
     body.dark-mode .company {
-    color: #b0bec5;
+      color: #b0bec5;
     }
 
     body.dark-mode a {
-    color: #90caf9;
+      color: #90caf9;
     }
 
     .container {
@@ -43,113 +43,32 @@
       padding: 30px;
       background: #ffffff;
     }
-
-    h1 {
-      margin-bottom: 5px;
-      color: #1a237e;
-    }
-
-    h2 {
-      margin-top: 35px;
-      border-bottom: 2px solid #1a237e;
-      padding-bottom: 5px;
-      color: #1a237e;
-    }
-
-    h3 {
-      margin-bottom: 5px;
-      color: #333;
-    }
-
-    .header p {
-      margin: 4px 0;
-    }
-
-    .contact a {
-      color: #1a237e;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .role {
-      font-weight: bold;
-    }
-
-    .company {
-      font-style: italic;
-      color: #555;
-    }
-
-    .date {
-      float: right;
-      color: #666;
-      font-size: 0.9em;
-    }
-
-    .section {
-      margin-bottom: 25px;
-    }
-
-    @media (max-width: 600px) {
-      .date {
-        float: none;
-        display: block;
-      }
-    }
   </style>
 </head>
 
-  <script>
-  const toggleBtn = document.getElementById("theme-toggle");
-  const body = document.body;
-
-  // Load saved preference
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️ Light Mode";
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.textContent = "☀️ Light Mode";
-    } else {
-      localStorage.setItem("theme", "light");
-      toggleBtn.textContent = "🌙 Dark Mode";
-    }
-  });
-</script>
-
 <body>
+
+  <!-- 🌙 DARK MODE BUTTON -->
+  <button id="theme-toggle"
+    style="
+      position:fixed;
+      top:20px;
+      right:20px;
+      padding:8px 12px;
+      border:none;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:14px;
+      background:#1a237e;
+      color:#fff;
+      z-index:1000;
+    ">
+    🌙 Dark Mode
+  </button>
+
+  <!-- 📄 MAIN CONTENT -->
+
   <div class="container">
-  <script>
-  const toggleBtn = document.getElementById("theme-toggle");
-  const body = document.body;
-
-  // Load saved preference
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️ Light Mode";
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.textContent = "☀️ Light Mode";
-    } else {
-      localStorage.setItem("theme", "light");
-      toggleBtn.textContent = "🌙 Dark Mode";
-    }
-  });
-</script>
 
     <!-- HEADER -->
     <div class="header">
@@ -325,5 +244,29 @@ connectivity solutions, ensuring compliance and effective collaboration with cro
     </div>
 
   </div>
+<!-- 🌗 DARK MODE SCRIPT -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark-mode");
+      toggleBtn.textContent = "☀️ Light Mode";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️ Light Mode";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙 Dark Mode";
+      }
+    });
+  </script>
+
 </body>
 </html>
