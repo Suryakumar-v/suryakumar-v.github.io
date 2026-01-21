@@ -127,22 +127,29 @@
 </script>
 
 <body>
-  <button id="theme-toggle"
-  style="
-    position:fixed;
-    top:20px;
-    right:20px;
-    padding:8px 12px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    font-size:14px;
-    background:#1a237e;
-    color:#fff;
-  ">
-  🌙 Dark Mode
-</button>
   <div class="container">
+  <script>
+  const toggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  // Load saved preference
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggleBtn.textContent = "☀️ Light Mode";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "☀️ Light Mode";
+    } else {
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "🌙 Dark Mode";
+    }
+  });
+</script>
 
     <!-- HEADER -->
     <div class="header">
